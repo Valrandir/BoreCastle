@@ -1,4 +1,5 @@
 #include "WindowSDL.hpp"
+#include "ImageSDL.hpp"
 
 namespace Engine
 {
@@ -9,6 +10,7 @@ namespace Engine
 			_is_destroyed = true;
 
 			_window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+
 			if(_window == nullptr)
 				return;
 
@@ -22,9 +24,14 @@ namespace Engine
 			_is_destroyed = false;
 		}
 
+		WindowSDL::~WindowSDL()
+		{
+			Destroy();
+		}
+
 		void WindowSDL::BeginDraw()
 		{
-			SDL_SetRenderDrawColor(_renderer, 0, 66, 0, 0xff);
+			SDL_SetRenderDrawColor(_renderer, 0x0, 0x0, 0x0, 0xff);
 			SDL_RenderClear(_renderer);
 		}
 
@@ -33,6 +40,15 @@ namespace Engine
 			SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
 			SDL_Rect rect{x, y, w, h};
 			SDL_RenderFillRect(_renderer, &rect);
+		}
+
+		void WindowSDL::DrawImage(int x, int y, const Image* image, Color color)
+		{
+			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
+			SDL_Texture* texture = image_sdl->Texture();
+			SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
+			SDL_Rect dest{x, y, image_sdl->Width(), image_sdl->Height()};
+			SDL_RenderCopy(_renderer, texture, 0, &dest);
 		}
 
 		void WindowSDL::EndDraw()
@@ -59,10 +75,10 @@ namespace Engine
 		{
 			_is_destroyed = true;
 		}
-
-		WindowSDL::~WindowSDL()
+		
+		Image* WindowSDL::LoadImage(const char* file) const
 		{
-			Destroy();
+			return new ImageSDL(file, _renderer);
 		}
 
 		int WindowSDL::Width() const { return _width; }

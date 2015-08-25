@@ -1,4 +1,4 @@
-#include "WindowSDL\WindowSDL.hpp"
+#include "SDL\WindowSDL.hpp"
 #include "Window.hpp"
 
 namespace Engine

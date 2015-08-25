@@ -1,6 +1,4 @@
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
 
 namespace Engine
 {
@@ -8,16 +6,13 @@ namespace Engine
 	{
 		class Image
 		{
-			int _width{}, _height{};
-			SDL_Texture* _texture;
-
 			public:
-			Image(const char* file);
+			Image();
 			Image(const Image&) = delete;
 			Image(Image&&) = delete;
 			Image& operator=(const Image&) = delete;
 			Image& operator=(Image&&) = delete;
-			~Image();
+			virtual ~Image();
 
 			int Width() const;
 			int Height() const;

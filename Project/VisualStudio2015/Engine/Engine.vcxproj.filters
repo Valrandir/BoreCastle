@@ -7,11 +7,11 @@
     <Filter Include="Include">
       <UniqueIdentifier>{8f576542-ad06-4619-9183-130d464a55f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Display\WindowSDL">
-      <UniqueIdentifier>{2ac5863d-9d62-4ad6-8f07-3f4b62a7c1ec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Timing">
       <UniqueIdentifier>{2871891c-2453-4f8b-888f-354001a6df3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Display\SDL">
+      <UniqueIdentifier>{2ac5863d-9d62-4ad6-8f07-3f4b62a7c1ec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -25,9 +25,6 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\Color.hpp">
       <Filter>Display</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Engine\Source\Display\WindowSDL\WindowSDL.hpp">
-      <Filter>Display\WindowSDL</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Engine\Source\Display\Window.hpp">
       <Filter>Display</Filter>
     </ClInclude>
@@ -40,14 +37,17 @@
     <ClInclude Include="..\..\..\Engine\Source\Timing\Clock.hpp">
       <Filter>Timing</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.hpp">
+      <Filter>Display\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.hpp">
+      <Filter>Display\SDL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\Image.cpp">
       <Filter>Display</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Engine\Source\Display\WindowSDL\WindowSDL.cpp">
-      <Filter>Display\WindowSDL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Display\Window.cpp">
       <Filter>Display</Filter>
@@ -57,6 +57,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Timing\Clock.cpp">
       <Filter>Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.cpp">
+      <Filter>Display\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.cpp">
+      <Filter>Display\SDL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

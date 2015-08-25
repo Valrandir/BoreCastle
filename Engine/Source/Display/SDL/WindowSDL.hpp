@@ -25,9 +25,12 @@ namespace Engine
 
 			void BeginDraw();
 			void DrawRect(int x, int y, int w, int h, Color color);
+			void DrawImage(int x, int y, const Image* image, Color color = {0xff, 0xff, 0xff});
 			void EndDraw();
 			bool Update();
 			void Close();
+
+			Image* LoadImage(const char* file) const;
 
 			int Width() const;
 			int Height() const;

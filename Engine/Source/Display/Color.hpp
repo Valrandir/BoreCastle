@@ -9,6 +9,7 @@ namespace Engine
 		{
 			uint8_t r, g, b, a;
 			Color() : r{}, g{}, b{}, a{} {}
+			Color(uint8_t r, uint8_t g, uint8_t b) : r{r}, g{g}, b{b}, a{0xff} {}
 			Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) : r{r}, g{g}, b{b}, a{a} {}
 		};
 	}
