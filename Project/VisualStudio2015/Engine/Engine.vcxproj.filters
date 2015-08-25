@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Display">
+      <UniqueIdentifier>{b2ac7aed-f12d-40b0-8325-e3e934cf0ee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{8f576542-ad06-4619-9183-130d464a55f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Display\WindowSDL">
+      <UniqueIdentifier>{2ac5863d-9d62-4ad6-8f07-3f4b62a7c1ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timing">
+      <UniqueIdentifier>{2871891c-2453-4f8b-888f-354001a6df3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
+    <ClInclude Include="..\..\..\Engine\Include\Engine.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\Image.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\Color.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\WindowSDL\WindowSDL.hpp">
+      <Filter>Display\WindowSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\Window.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\Display.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Timing\Rate.hpp">
+      <Filter>Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Timing\Clock.hpp">
+      <Filter>Timing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Display\Image.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\WindowSDL\WindowSDL.cpp">
+      <Filter>Display\WindowSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\Window.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Timing\Rate.cpp">
+      <Filter>Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Timing\Clock.cpp">
+      <Filter>Timing</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
