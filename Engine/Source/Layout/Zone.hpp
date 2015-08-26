@@ -14,6 +14,8 @@ namespace Engine
 
 			public:
 			Zone(int width, int height);
+			Zone(const Zone&) = delete;
+			Zone& operator=(const Zone&) = delete;
 
 			void Render(Rectangle camera, const Renderer* renderer) const;
 

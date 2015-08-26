@@ -18,9 +18,7 @@ namespace Engine
 			public:
 			WindowSDL(const char* title, int width, int height);
 			WindowSDL(const WindowSDL&) = delete;
-			WindowSDL(WindowSDL&&) = delete;
 			WindowSDL& operator=(const WindowSDL&) = delete;
-			WindowSDL& operator=(WindowSDL&&) = delete;
 			~WindowSDL();
 
 			void BeginDraw(bool clear = true);

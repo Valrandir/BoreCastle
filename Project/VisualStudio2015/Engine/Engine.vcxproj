@@ -28,6 +28,7 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Window.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Layout.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Rectangle.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Size.hpp" />
@@ -41,6 +42,7 @@
     <ClCompile Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\Window.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Layout\Background.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Zone.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Timing\Clock.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Timing\Rate.cpp" />

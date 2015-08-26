@@ -15,9 +15,7 @@ namespace Engine
 			public:
 			ImageSDL(const char* file, SDL_Renderer* renderer);
 			ImageSDL(const ImageSDL&) = delete;
-			ImageSDL(ImageSDL&&) = delete;
 			ImageSDL& operator=(const ImageSDL&) = delete;
-			ImageSDL& operator=(ImageSDL&&) = delete;
 			~ImageSDL();
 
 			SDL_Texture* Texture() const;

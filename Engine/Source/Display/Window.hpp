@@ -14,9 +14,7 @@ namespace Engine
 			static Window* Create(const char* title, int width, int height);
 			Window() = default;
 			Window(const Window&) = delete;
-			Window(Window&&) = delete;
 			Window& operator=(const Window&) = delete;
-			Window& operator=(Window&&) = delete;
 			virtual ~Window();
 
 			virtual void BeginDraw(bool clear = true) = 0;

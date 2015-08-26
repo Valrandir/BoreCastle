@@ -61,6 +61,9 @@
     <ClInclude Include="..\..\..\Engine\Source\Layout\Size.hpp">
       <Filter>Layout</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp">
+      <Filter>Layout</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
@@ -83,6 +86,9 @@
       <Filter>Display\SDL</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Layout\Zone.cpp">
+      <Filter>Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Layout\Background.cpp">
       <Filter>Layout</Filter>
     </ClCompile>
   </ItemGroup>

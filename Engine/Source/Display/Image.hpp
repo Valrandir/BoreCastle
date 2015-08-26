@@ -9,13 +9,11 @@ namespace Engine
 			public:
 			Image() = default;
 			Image(const Image&) = delete;
-			Image(Image&&) = delete;
 			Image& operator=(const Image&) = delete;
-			Image& operator=(Image&&) = delete;
 			virtual ~Image();
 
-			int Width() const;
-			int Height() const;
+			virtual int Width() const = 0;
+			virtual int Height() const = 0;
 		};
 	}
 }
