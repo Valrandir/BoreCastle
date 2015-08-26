@@ -10,7 +10,6 @@ namespace Engine
 			return new WindowSDL(title, width, height);
 		}
 
-		Window::Window(){}
 		Window::~Window(){}
 	}
 }

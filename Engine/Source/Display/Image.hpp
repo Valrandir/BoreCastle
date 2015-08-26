@@ -7,7 +7,7 @@ namespace Engine
 		class Image
 		{
 			public:
-			Image();
+			Image() = default;
 			Image(const Image&) = delete;
 			Image(Image&&) = delete;
 			Image& operator=(const Image&) = delete;

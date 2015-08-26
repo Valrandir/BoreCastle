@@ -29,24 +29,43 @@ namespace Engine
 			Destroy();
 		}
 
-		void WindowSDL::BeginDraw()
+		void WindowSDL::BeginDraw(bool clear)
 		{
-			SDL_SetRenderDrawColor(_renderer, 0x0, 0x0, 0x0, 0xff);
-			SDL_RenderClear(_renderer);
+			if(clear)
+				Clear();
 		}
 
-		void WindowSDL::DrawRect(int x, int y, int w, int h, Color color)
+		void WindowSDL::Clear(Color color) const
 		{
-			SDL_SetRenderDrawColor(_renderer, color.r, color.g, color.b, color.a);
+			SDL_SetRenderDrawColor(_renderer, color.red, color.green, color.blue, color.alpha);
+			SDL_RenderClear(_renderer);
+		}
+		
+		void WindowSDL::EnableClipping(int x, int y, int w, int h) const
+		{
+			SDL_Rect rect{x, y, w, h};
+			SDL_RenderSetClipRect(_renderer, &rect);
+			//SDL_RenderSetViewport(_renderer, &rect);
+		}
+
+		void WindowSDL::DisableClipping() const
+		{
+			SDL_RenderSetClipRect(_renderer, nullptr);
+			//SDL_RenderSetViewport(_renderer, nullptr);
+		}
+
+		void WindowSDL::DrawRect(int x, int y, int w, int h, Color color) const
+		{
+			SDL_SetRenderDrawColor(_renderer, color.red, color.green, color.blue, color.alpha);
 			SDL_Rect rect{x, y, w, h};
 			SDL_RenderFillRect(_renderer, &rect);
 		}
 
-		void WindowSDL::DrawImage(int x, int y, const Image* image, Color color)
+		void WindowSDL::DrawImage(int x, int y, const Image* image, Color color) const
 		{
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
-			SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
+			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
 			SDL_Rect dest{x, y, image_sdl->Width(), image_sdl->Height()};
 			SDL_RenderCopy(_renderer, texture, 0, &dest);
 		}

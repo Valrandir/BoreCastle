@@ -13,6 +13,9 @@
     <Filter Include="Display\SDL">
       <UniqueIdentifier>{2ac5863d-9d62-4ad6-8f07-3f4b62a7c1ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Layout">
+      <UniqueIdentifier>{62b95018-b8a6-475b-8998-71ce918be468}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
@@ -43,6 +46,21 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.hpp">
       <Filter>Display\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Zone.hpp">
+      <Filter>Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Layout.hpp">
+      <Filter>Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\Renderer.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Rectangle.hpp">
+      <Filter>Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Size.hpp">
+      <Filter>Layout</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
@@ -63,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.cpp">
       <Filter>Display\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Layout\Zone.cpp">
+      <Filter>Layout</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

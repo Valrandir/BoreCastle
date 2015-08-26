@@ -23,9 +23,14 @@ namespace Engine
 			WindowSDL& operator=(WindowSDL&&) = delete;
 			~WindowSDL();
 
-			void BeginDraw();
-			void DrawRect(int x, int y, int w, int h, Color color);
-			void DrawImage(int x, int y, const Image* image, Color color = {0xff, 0xff, 0xff});
+			void BeginDraw(bool clear = true);
+
+			void Clear(Color color = Color()) const;
+			void EnableClipping(int x, int y, int w, int h) const;
+			void DisableClipping() const;
+			void DrawRect(int x, int y, int w, int h, Color color) const;
+			void DrawImage(int x, int y, const Image* image, Color color = {0xff, 0xff, 0xff}) const;
+
 			void EndDraw();
 			bool Update();
 			void Close();

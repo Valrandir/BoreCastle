@@ -5,7 +5,6 @@ namespace Engine
 {
 	namespace Display
 	{
-		Image::Image() {}
 		Image::~Image() {}
 	}
 }
