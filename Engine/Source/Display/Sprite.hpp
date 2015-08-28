@@ -11,20 +11,19 @@ namespace Engine
 
 		class Sprite
 		{
-			int _width;
-			int _height;
+			Point _size;
 			Rate _rate;
 			const Image* _image;
 			int _count;
 			int _index;
 
 			public:
-			Sprite(int width, int height, int updates_per_second, const Image* image);
+			Sprite(int updates_per_second, const Image* image);
 			Sprite(const Sprite&) = delete;
 			Sprite& operator=(const Sprite&) = delete;
 			~Sprite();
 
-			void Draw(int x, int y, const Renderer* renderer);
+			void Draw(const Point& position, const Renderer* renderer);
 		};
 	}
 }

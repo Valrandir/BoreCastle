@@ -7,21 +7,29 @@ namespace Engine
 	{
 		struct Rectangle
 		{
-			int x1, y1, x2, y2;
+			Point position;
+			Point size;
 
-			Rectangle() : x1{}, y1{}, x2{}, y2{} {}
-			Rectangle(int x1, int y1, int x2, int y2) : x1{x1}, y1{y1}, x2{x2}, y2{y2} {}
+			Rectangle() {}
+			Rectangle(const Point& position, const Point& size) : position{position}, size{size} {}
 
 			Rectangle(const Rectangle& source)
 			{
-				x1 = source.x1;
-				x2 = source.x2;
-				y1 = source.y1;
-				y2 = source.y2;
+				position = source.position;
+				size = source.size;
 			}
 
-			int Width() const { return x2 - x1; }
-			int Height() const { return y2 - y1; }
+			Rectangle& operator=(const Rectangle& source)
+			{
+				position = source.position;
+				size = source.size;
+				return *this;
+			}
+
+			bool operator==(const Rectangle& source) const
+			{
+				return position == source.position && size == source.size;
+			}
 		};
 	}
 }

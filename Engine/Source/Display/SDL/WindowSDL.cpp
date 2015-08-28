@@ -41,43 +41,30 @@ namespace Engine
 			SDL_RenderClear(_renderer);
 		}
 
-		//void WindowSDL::EnableClipping(int x, int y, int w, int h) const
-		//{
-		//	SDL_Rect rect{x, y, w, h};
-		//	SDL_RenderSetClipRect(_renderer, &rect);
-		//	//SDL_RenderSetViewport(_renderer, &rect);
-		//}
-
-		//void WindowSDL::DisableClipping() const
-		//{
-		//	SDL_RenderSetClipRect(_renderer, nullptr);
-		//	//SDL_RenderSetViewport(_renderer, nullptr);
-		//}
-
-		void WindowSDL::DrawRect(int x, int y, int w, int h, Color color) const
+		void WindowSDL::DrawRect(const Rectangle& rectangle, Color color) const
 		{
 			SDL_SetRenderDrawColor(_renderer, color.red, color.green, color.blue, color.alpha);
-			SDL_Rect rect{x, y, w, h};
+			SDL_Rect rect{rectangle.position.x, rectangle.position.y, rectangle.size.x, rectangle.size.y};
 			SDL_RenderFillRect(_renderer, &rect);
 		}
 
-		void WindowSDL::DrawImage(int x, int y, const Image* image, Color color) const
+		void WindowSDL::DrawImage(const Point& position, const Image* image, Color color) const
 		{
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
 			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
-			SDL_Rect target{x, y, image_sdl->Width(), image_sdl->Height()};
-			SDL_RenderCopy(_renderer, texture, nullptr, &target);
+			SDL_Rect rect{position.x, position.y, image_sdl->Width(), image_sdl->Height()};
+			SDL_RenderCopy(_renderer, texture, nullptr, &rect);
 		}
 
-		void WindowSDL::DrawImage(int target_x, int target_y, int source_x, int source_y, int source_width, int source_height, const Image* image, Color color) const
+		void WindowSDL::DrawImage(const Point& position, Rectangle source, const Image* image, Color color) const
 		{
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
 			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
-			SDL_Rect source{source_x, source_y, source_width, source_height};
-			SDL_Rect target{target_x, target_y, source_width, source_height};
-			SDL_RenderCopy(_renderer, texture, &source, &target);
+			SDL_Rect sdl_target{position.x, position.y, source.size.x, source.size.y};
+			SDL_Rect sdl_source{source.position.x, source.position.y, source.size.x, source.size.y};
+			SDL_RenderCopy(_renderer, texture, &sdl_source, &sdl_target);
 		}
 
 		void WindowSDL::EndDraw()

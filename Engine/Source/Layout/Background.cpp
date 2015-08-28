@@ -18,21 +18,21 @@ namespace Engine
 			switch(_tile_mode)
 			{
 				case TileMode::Single:
-					renderer->DrawImage(x, y, _image);
+					renderer->DrawImage({x, y}, _image);
 					break;
 				case TileMode::Right:
 					x += renderer->Width() - _image->Width();
 				case TileMode::Left:
 					y = _position.y + static_cast<int>(offset.y * _scroll_ratio);
 					for(y = -(y % _image->Height()); y < renderer->Height(); y += _image->Height())
-						renderer->DrawImage(x, y, _image);
+						renderer->DrawImage({x, y}, _image);
 					break;
 				case TileMode::Bottom:
 					y += renderer->Height() - _image->Height();
 				case TileMode::Top:
 					x = _position.x + static_cast<int>(offset.x * _scroll_ratio);
 					for(x = -(x % _image->Width()); x < renderer->Width(); x += _image->Width())
-						renderer->DrawImage(x, y, _image);
+						renderer->DrawImage({x, y}, _image);
 					break;
 			}
 		}

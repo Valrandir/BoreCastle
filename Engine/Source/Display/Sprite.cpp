@@ -4,12 +4,11 @@ namespace Engine
 {
 	namespace Display
 	{
-		Sprite::Sprite(int width, int height, int updates_per_second, const Image* image) :
-			_width{width},
-			_height{height},
+		Sprite::Sprite(int updates_per_second, const Image* image) :
+			_size{image->Height(), image->Height()},
 			_rate(updates_per_second),
 			_image{image},
-			_count{image->Width() / width},
+			_count{image->Width() / image->Height()},
 			_index{}
 		{}
 
@@ -22,9 +21,9 @@ namespace Engine
 			}
 		}
 
-		void Sprite::Draw(int x, int y, const Renderer* renderer)
+		void Sprite::Draw(const Point& position, const Renderer* renderer)
 		{
-			renderer->DrawImage(x, y, _index * _width, 0, _width, _height, _image);
+			renderer->DrawImage(position, {{_index * _size.x, 0}, {_size.x, _size.y}}, _image);
 
 			_index += _rate.Update();
 			if(_index >= _count)

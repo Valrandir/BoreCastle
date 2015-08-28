@@ -7,8 +7,8 @@ using namespace Engine::Layout;
 
 int BoreCastleMain()
 {
-	const int width = 800;
-	const int height = 600;
+	const int width = 1920 / 2;
+	const int height = 1080 / 2;
 
 	auto window = Window::Create("Hello World!", width, height);
 
@@ -28,7 +28,7 @@ int BoreCastleMain()
 	Background bg_right(Background::TileMode::Right, {}, 1.0, window->LoadImage(DATA_PATH "RoundTest.png"));
 
 	Image* img_sprite = window->LoadImage(DATA_PATH "Sprite.png");
-	Sprite sprite_energy(img_sprite->Height(), img_sprite->Height(), 60, img_sprite);
+	Sprite sprite_energy(60, img_sprite);
 
 	Point offset;
 
@@ -41,16 +41,16 @@ int BoreCastleMain()
 		bg_grass.Render(offset, window);
 		bg_ground.Render(offset, window);
 
-		window->DrawImage(0, 0, img_star, Color::Gray());
-		window->DrawImage(400, 0, img_round);
-		window->DrawImage(60, 80, img_round, Color(0xff, 0x0, 0x0));
-		window->DrawImage(160, 180, img_round, Color(0x80, 0x0, 0x80));
-		window->DrawRect(width / 2 - 10, height / 2 - 10, 20, 20, Color{0xff, 0, 0xff});
+		window->DrawImage({0, 0}, img_star, Color::Gray());
+		window->DrawImage({400, 0}, img_round);
+		window->DrawImage({60, 80}, img_round, Color(0xff, 0x0, 0x0));
+		window->DrawImage({160, 180}, img_round, Color(0x80, 0x0, 0x80));
+		window->DrawRect({{width / 2 - 10, height / 2 - 10}, {20, 20}}, Color{0xff, 0, 0xff});
 
 		bg_left.Render(offset, window);
 		bg_right.Render(offset, window);
 
-		sprite_energy.Draw(530, 55, window);
+		sprite_energy.Draw({530, 55}, window);
 
 		bg_grass_front.Render(offset, window);
 
