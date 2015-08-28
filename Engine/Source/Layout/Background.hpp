@@ -3,6 +3,7 @@
 #include "../Display/Color.hpp"
 #include "../Display/Image.hpp"
 #include "../Display/Renderer.hpp"
+#include "Point.hpp"
 
 namespace Engine
 {
@@ -17,18 +18,18 @@ namespace Engine
 
 			private:
 			TileMode _tile_mode;
-			int _x, _y;
+			Point _position;
 			double _scroll_ratio;
 			const Image* _image;
 
 			public:
 			//image is owned by this class, do not delete it from outside.
-			Background(TileMode tile_mode, int x, int y, double scroll_ratio, const Image* image);
+			Background(TileMode tile_mode, const Point& position, double scroll_ratio, const Image* image);
 
 			Background(const Background&) = delete;
 			Background& operator=(const Background&) = delete;
 
-			void Render(int offset_x, int offset_y, const Renderer* renderer) const;
+			void Render(const Point& offset, const Renderer* renderer) const;
 
 			~Background();
 		};

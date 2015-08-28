@@ -1,5 +1,5 @@
 #pragma once
-#include "Size.hpp"
+#include "Point.hpp"
 
 namespace Engine
 {
@@ -11,7 +11,6 @@ namespace Engine
 
 			Rectangle() : x1{}, y1{}, x2{}, y2{} {}
 			Rectangle(int x1, int y1, int x2, int y2) : x1{x1}, y1{y1}, x2{x2}, y2{y2} {}
-			Rectangle(int x, int y, Size size) : x1{x}, y1{y} { x2 = x + size.width; y2 = y + size.height; }
 
 			Rectangle(const Rectangle& source)
 			{

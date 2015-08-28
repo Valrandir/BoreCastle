@@ -40,19 +40,19 @@ namespace Engine
 			SDL_SetRenderDrawColor(_renderer, color.red, color.green, color.blue, color.alpha);
 			SDL_RenderClear(_renderer);
 		}
-		
-		void WindowSDL::EnableClipping(int x, int y, int w, int h) const
-		{
-			SDL_Rect rect{x, y, w, h};
-			SDL_RenderSetClipRect(_renderer, &rect);
-			//SDL_RenderSetViewport(_renderer, &rect);
-		}
 
-		void WindowSDL::DisableClipping() const
-		{
-			SDL_RenderSetClipRect(_renderer, nullptr);
-			//SDL_RenderSetViewport(_renderer, nullptr);
-		}
+		//void WindowSDL::EnableClipping(int x, int y, int w, int h) const
+		//{
+		//	SDL_Rect rect{x, y, w, h};
+		//	SDL_RenderSetClipRect(_renderer, &rect);
+		//	//SDL_RenderSetViewport(_renderer, &rect);
+		//}
+
+		//void WindowSDL::DisableClipping() const
+		//{
+		//	SDL_RenderSetClipRect(_renderer, nullptr);
+		//	//SDL_RenderSetViewport(_renderer, nullptr);
+		//}
 
 		void WindowSDL::DrawRect(int x, int y, int w, int h, Color color) const
 		{
@@ -104,7 +104,7 @@ namespace Engine
 		{
 			_is_destroyed = true;
 		}
-		
+
 		Image* WindowSDL::LoadImage(const char* file) const
 		{
 			return new ImageSDL(file, _renderer);

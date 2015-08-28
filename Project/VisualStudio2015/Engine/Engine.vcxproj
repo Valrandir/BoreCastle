@@ -32,7 +32,7 @@
     <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Layout.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Rectangle.hpp" />
-    <ClInclude Include="..\..\..\Engine\Source\Layout\Size.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Point.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Zone.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Timing\Clock.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Timing\Rate.hpp" />

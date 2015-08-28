@@ -58,14 +58,14 @@
     <ClInclude Include="..\..\..\Engine\Source\Layout\Rectangle.hpp">
       <Filter>Layout</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Engine\Source\Layout\Size.hpp">
-      <Filter>Layout</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp">
       <Filter>Layout</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Engine\Source\Display\Sprite.hpp">
       <Filter>Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Layout\Point.hpp">
+      <Filter>Layout</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
