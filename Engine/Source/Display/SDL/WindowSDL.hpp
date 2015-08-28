@@ -28,6 +28,7 @@ namespace Engine
 			void DisableClipping() const;
 			void DrawRect(int x, int y, int w, int h, Color color) const;
 			void DrawImage(int x, int y, const Image* image, Color color = {0xff, 0xff, 0xff}) const;
+			void DrawImage(int target_x, int target_y, int source_x, int source_y, int source_width, int source_height, const Image* image, Color color = {0xff, 0xff, 0xff}) const;
 
 			void EndDraw();
 			bool Update();

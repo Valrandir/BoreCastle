@@ -26,6 +26,7 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\Renderer.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Display\Sprite.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Window.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="..\..\..\Engine\Source\Display\Image.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\SDL\WindowSDL.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Display\Sprite.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\Window.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Background.cpp" />

@@ -66,8 +66,18 @@ namespace Engine
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
 			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
-			SDL_Rect dest{x, y, image_sdl->Width(), image_sdl->Height()};
-			SDL_RenderCopy(_renderer, texture, 0, &dest);
+			SDL_Rect target{x, y, image_sdl->Width(), image_sdl->Height()};
+			SDL_RenderCopy(_renderer, texture, nullptr, &target);
+		}
+
+		void WindowSDL::DrawImage(int target_x, int target_y, int source_x, int source_y, int source_width, int source_height, const Image* image, Color color) const
+		{
+			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
+			SDL_Texture* texture = image_sdl->Texture();
+			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
+			SDL_Rect source{source_x, source_y, source_width, source_height};
+			SDL_Rect target{target_x, target_y, source_width, source_height};
+			SDL_RenderCopy(_renderer, texture, &source, &target);
 		}
 
 		void WindowSDL::EndDraw()
