@@ -1,14 +1,14 @@
 #pragma once
 #include "Color.hpp"
 #include "Image.hpp"
-#include "../Layout/Rectangle.hpp"
-#include "../Layout/Point.hpp"
+#include "../Geometry/Rectangle.hpp"
+#include "../Geometry/Point.hpp"
 
 namespace Engine
 {
 	namespace Display
 	{
-		using namespace Layout;
+		using namespace Geometry;
 
 		class Renderer
 		{

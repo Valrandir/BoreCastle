@@ -29,10 +29,13 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\Sprite.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Window.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Geometry.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Motion.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Point.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Rectangle.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Vector.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Background.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Layout.hpp" />
-    <ClInclude Include="..\..\..\Engine\Source\Layout\Rectangle.hpp" />
-    <ClInclude Include="..\..\..\Engine\Source\Layout\Point.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Layout\Zone.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Timing\Clock.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Timing\Rate.hpp" />
@@ -44,6 +47,9 @@
     <ClCompile Include="..\..\..\Engine\Source\Display\Sprite.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Display\Window.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Geometry\Motion.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Geometry\Point.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Geometry\Vector.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Background.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Zone.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Timing\Clock.cpp" />

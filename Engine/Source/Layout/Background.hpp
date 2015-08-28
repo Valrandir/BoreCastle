@@ -3,7 +3,7 @@
 #include "../Display/Color.hpp"
 #include "../Display/Image.hpp"
 #include "../Display/Renderer.hpp"
-#include "Point.hpp"
+#include "../Geometry/Point.hpp"
 
 namespace Engine
 {

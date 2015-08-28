@@ -3,7 +3,7 @@
 
 namespace Engine
 {
-	namespace Layout
+	namespace Geometry
 	{
 		struct Rectangle
 		{

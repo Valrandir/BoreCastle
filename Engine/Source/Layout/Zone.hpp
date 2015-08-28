@@ -1,6 +1,6 @@
 #pragma once
 #include "../Display/Renderer.hpp"
-#include "Point.hpp"
+#include "../Geometry/Point.hpp"
 #include "Background.hpp"
 #include <vector>
 

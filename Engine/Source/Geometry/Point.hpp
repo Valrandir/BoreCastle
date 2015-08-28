@@ -1,0 +1,46 @@
+#pragma once
+
+namespace Engine
+{
+	namespace Geometry
+	{
+		struct Point
+		{
+			int x, y;
+
+			Point();
+			Point(int x, int y);
+
+			Point(const Point& src);
+			Point& operator=(const Point& src);
+
+			Point operator-() const;
+			bool operator==(const Point& src) const;
+
+			Point operator+(const Point& src) const;
+			Point operator-(const Point& src) const;
+			Point operator*(const Point& src) const;
+			Point operator/(const Point& src) const;
+
+			Point operator+(int val) const;
+			Point operator-(int val) const;
+			Point operator*(int val) const;
+			Point operator/(int val) const;
+
+			Point& operator+=(const Point& src);
+			Point& operator-=(const Point& src);
+			Point& operator*=(const Point& src);
+			Point& operator/=(const Point& src);
+
+			Point& operator+=(int val);
+			Point& operator-=(int val);
+			Point& operator*=(int val);
+			Point& operator/=(int val);
+
+			Point& operator++();
+			Point& operator--();
+			Point operator++(int);
+			Point operator--(int);
+		};
+	}
+}
