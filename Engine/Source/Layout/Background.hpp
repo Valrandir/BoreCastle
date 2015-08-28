@@ -19,11 +19,11 @@ namespace Engine
 			TileMode _tile_mode;
 			int _x, _y;
 			double _scroll_ratio;
-			Image* _image;
+			const Image* _image;
 
 			public:
 			//image is owned by this class, do not delete it from outside.
-			Background(TileMode tile_mode, int x, int y, double scroll_ratio, Image* image);
+			Background(TileMode tile_mode, int x, int y, double scroll_ratio, const Image* image);
 
 			Background(const Background&) = delete;
 			Background& operator=(const Background&) = delete;

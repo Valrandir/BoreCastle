@@ -4,7 +4,7 @@ namespace Engine
 {
 	namespace Layout
 	{
-		Background::Background(TileMode tile_mode, int x, int y, double scroll_ratio, Image* image) :
+		Background::Background(TileMode tile_mode, int x, int y, double scroll_ratio, const Image* image) :
 			_tile_mode{tile_mode},
 			_x{x},
 			_y{y},
@@ -24,14 +24,14 @@ namespace Engine
 				case TileMode::Right:
 					x += renderer->Width() - _image->Width();
 				case TileMode::Left:
-					y = _y + offset_y * _scroll_ratio;
+					y = _y + static_cast<int>(offset_y * _scroll_ratio);
 					for(y = -(y % _image->Height()); y < renderer->Height(); y += _image->Height())
 						renderer->DrawImage(x, y, _image);
 					break;
 				case TileMode::Bottom:
 					y += renderer->Height() - _image->Height();
 				case TileMode::Top:
-					x = _x + offset_x * _scroll_ratio;
+					x = _x + static_cast<int>(offset_x * _scroll_ratio);
 					for(x = -(x % _image->Width()); x < renderer->Width(); x += _image->Width())
 						renderer->DrawImage(x, y, _image);
 					break;
