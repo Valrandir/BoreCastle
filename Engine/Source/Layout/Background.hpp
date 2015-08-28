@@ -12,25 +12,23 @@ namespace Engine
 
 		class Background
 		{
-			int _fixed_image_x;
-			int _fixed_image_y;
-			Image* _fixed_image;
-			int _tile_image_y;
-			double _tile_image_z;
-			Image* _tile_image;
+			public:
+			enum class TileMode { Single, Mosaic, Left, Top, Right, Bottom };
+
+			private:
+			TileMode _tile_mode;
+			int _x, _y;
+			double _scroll_ratio;
+			Image* _image;
 
 			public:
-			Background();
+			//image is owned by this class, do not delete it from outside.
+			Background(TileMode tile_mode, int x, int y, double scroll_ratio, Image* image);
+
 			Background(const Background&) = delete;
 			Background& operator=(const Background&) = delete;
 
-			//Background class own image pointer
-			void SetFixedImage(int x, int y, Image* image);
-
-			//Background class own image pointer
-			void SetTileImage(double z, int y, Image* image);
-
-			void Render(int offset_x, int offset_y, int width, int height, const Renderer* renderer) const;
+			void Render(int offset_x, int offset_y, const Renderer* renderer) const;
 
 			~Background();
 		};

@@ -10,57 +10,51 @@ int BoreCastleMain()
 
 	auto window = Window::Create("Hello World!", width, height);
 
-	Image* img1 = window->LoadImage("..\\..\\..\\Data\\StarTest.png"); //256x256
-	Image* img2 = window->LoadImage("..\\..\\..\\Data\\RoundTest.png"); //64x64
+	Image* img_star = window->LoadImage("..\\..\\..\\Data\\StarTest.png"); //256x256
+	Image* img_round = window->LoadImage("..\\..\\..\\Data\\RoundTest.png"); //64x64
 
-	Zone zone(width, height);
-	Rectangle camera(16, 8, Size(width / 2, height / 2));
+	Background bg_clouds(Background::TileMode::Top, 0, 0, 1.0, window->LoadImage("..\\..\\..\\Data\\Cloud.png"));
 
-	Background bg4;
-	bg4.SetTileImage(1.0, 0, window->LoadImage("..\\..\\..\\Data\\Cloud.png"));
+	Image* img_moon = window->LoadImage("..\\..\\..\\Data\\Moon.png");
+	Background bg_moon(Background::TileMode::Single, width - img_moon->Width(), 0, 0.0, window->LoadImage("..\\..\\..\\Data\\Moon.png"));
+	
+	Background bg_grass(Background::TileMode::Bottom, 0, 0, 1.0, window->LoadImage("..\\..\\..\\Data\\Grass.png"));
+	Background bg_ground(Background::TileMode::Bottom, 0, 0, 2.0, window->LoadImage("..\\..\\..\\Data\\Ground.png"));
+	Background bg_grass_front(Background::TileMode::Bottom, 0, 0, 3.0, window->LoadImage("..\\..\\..\\Data\\GrassFront.png"));
 
-	Background bg3;
-	{
-		Image* img = window->LoadImage("..\\..\\..\\Data\\Moon.png");
-		bg3.SetFixedImage(width - img->Width(), 0, img);
-	}
-	bg3.SetTileImage(1.0, height - 64, window->LoadImage("..\\..\\..\\Data\\Grass.png"));
+	Background bg_left(Background::TileMode::Left, 0, 0, 1.0, window->LoadImage("..\\..\\..\\Data\\RoundTest.png"));
+	Background bg_right(Background::TileMode::Right, 0, 0, 1.0, window->LoadImage("..\\..\\..\\Data\\RoundTest.png"));
 
-	Background bg2;
-	bg2.SetTileImage(2.0, height - 32, window->LoadImage("..\\..\\..\\Data\\Ground.png"));
-
-	Background bg1;
-	bg1.SetTileImage(3.0, height - 96, window->LoadImage("..\\..\\..\\Data\\GrassFront.png"));
-
-	int ox = 0;
+	int ox{}, oy{};
 
 	while(window->Update())
 	{
 		window->BeginDraw();
 
-		bg3.Render(ox, 0, width, height, window);
-		bg2.Render(ox, 0, width, height, window);
-		bg1.Render(ox, 0, width, height, window);
-		zone.Render(camera, window);
+		bg_moon.Render(ox, oy, window);
+		bg_clouds.Render(ox, oy, window);
+		bg_grass.Render(ox, oy, window);
+		bg_ground.Render(ox, oy, window);
+		bg_grass_front.Render(ox, oy, window);
+		bg_left.Render(ox, oy, window);
+		bg_right.Render(ox, oy, window);
 
-		window->DrawImage(0, 0, img1, Color::Gray());
-
-		window->DrawImage(400, 0, img2);
-		window->DrawImage(60, 80, img2, Color(0xff, 0x0, 0x0));
-		window->DrawImage(160, 180, img2, Color(0x80, 0x0, 0x80));
-
+		window->DrawImage(0, 0, img_star, Color::Gray());
+		window->DrawImage(400, 0, img_round);
+		window->DrawImage(60, 80, img_round, Color(0xff, 0x0, 0x0));
+		window->DrawImage(160, 180, img_round, Color(0x80, 0x0, 0x80));
 		window->DrawRect(width / 2 - 10, height / 2 - 10, 20, 20, Color{0xff, 0, 0xff});
 
-		bg4.Render(ox, 0, width, height, window);
 		window->EndDraw();
 
 		Engine::Sleep(1U);
 
 		++ox;
+		++oy;
 	}
 
-	delete img1;
-	delete img2;
+	delete img_star;
+	delete img_round;
 	delete window;
 	return 0;
 }
