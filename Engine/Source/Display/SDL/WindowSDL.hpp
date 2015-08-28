@@ -11,7 +11,6 @@ namespace Engine
 			int _width, _height;
 			SDL_Window* _window{};
 			SDL_Renderer* _renderer{};
-			SDL_Texture* _fill_texture{};
 
 			bool _is_destroyed;
 

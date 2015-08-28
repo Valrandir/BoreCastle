@@ -106,12 +106,6 @@ namespace Engine
 			_height = 0;
 			_is_destroyed = true;
 
-			if(_fill_texture)
-			{
-				SDL_DestroyTexture(_fill_texture);
-				_fill_texture = nullptr;
-			}
-
 			if(_renderer)
 			{
 				SDL_DestroyRenderer(_renderer);
