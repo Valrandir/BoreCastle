@@ -1,6 +1,8 @@
 #pragma once
 #include "../Display/Renderer.hpp"
-#include "Rectangle.hpp"
+#include "Point.hpp"
+#include "Background.hpp"
+#include <vector>
 
 namespace Engine
 {
@@ -10,20 +12,24 @@ namespace Engine
 
 		class Zone
 		{
-			int _width, _height;
+			Point _size;
+			Point _offset;
+			std::vector<Background*> _background_list;
 
 			public:
-			Zone(int width, int height);
+			Zone(const Point& size);
 			Zone(const Zone&) = delete;
 			Zone& operator=(const Zone&) = delete;
+			~Zone();
 
-			void Render(Rectangle camera, const Renderer* renderer) const;
+			void AddBackground(Background* background);
+			void SetOffset(const Point offset);
+			void Render(const Renderer* renderer) const;
 
 			int Width() const;
 			int Height() const;
 
 			private:
-			void DrawCheckboard(int ox, int oy, Rectangle camera, const Renderer* renderer) const;
 		};
 	}
 }
