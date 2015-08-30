@@ -12,13 +12,13 @@ namespace Engine
 		class Sprite
 		{
 			Point _size;
-			Rate _rate;
+			int _frame_count;
+			int _frame_index;
 			const Image* _image;
-			int _count;
-			int _index;
+			Rate _rate;
 
 			public:
-			Sprite(int updates_per_second, const Image* image);
+			Sprite(int frame_count, const Image* image, int updates_per_second);
 			Sprite(const Sprite&) = delete;
 			Sprite& operator=(const Sprite&) = delete;
 			~Sprite();

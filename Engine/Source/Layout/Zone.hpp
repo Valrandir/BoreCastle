@@ -2,7 +2,7 @@
 #include "../Display/Renderer.hpp"
 #include "../Geometry/Point.hpp"
 #include "Background.hpp"
-#include <vector>
+#include <map>
 
 namespace Engine
 {
@@ -14,7 +14,7 @@ namespace Engine
 		{
 			Point _size;
 			Point _offset;
-			std::vector<Background*> _background_list;
+			std::map<int, Background*> _layer_list;
 
 			public:
 			Zone(const Point& size);
@@ -22,9 +22,16 @@ namespace Engine
 			Zone& operator=(const Zone&) = delete;
 			~Zone();
 
-			void AddBackground(Background* background);
+			//Negative zorder for layers behind sprites, positive zorder for layers in front.
+			void AddLayer(int zorder, Background* background);
+
 			void SetOffset(const Point offset);
-			void Render(const Renderer* renderer) const;
+
+			//Render only layers with zorder < 0
+			void RenderBackground(const Renderer* renderer) const;
+
+			//Render only layers with zorder >= 0
+			void RenderForeground(const Renderer* renderer) const;
 
 			int Width() const;
 			int Height() const;

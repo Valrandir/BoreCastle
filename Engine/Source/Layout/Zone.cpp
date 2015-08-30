@@ -8,13 +8,13 @@ namespace Engine
 
 		Zone::~Zone()
 		{
-			for(auto& bg : _background_list)
-				delete bg;
+			for(auto& bg : _layer_list)
+				delete bg.second;
 		}
 
-		void Zone::AddBackground(Background* background)
+		void Zone::AddLayer(int zorder, Background* background)
 		{
-			_background_list.push_back(background);
+			_layer_list.insert({zorder, background});
 		}
 
 		void Zone::SetOffset(const Point offset)
@@ -22,10 +22,18 @@ namespace Engine
 			_offset = offset;
 		}
 
-		void Zone::Render(const Renderer* renderer) const
+		void Zone::RenderBackground(const Renderer* renderer) const
 		{
-			for(auto& bg : _background_list)
-				bg->Render(_offset, renderer);
+			for(auto& bg : _layer_list)
+				if(bg.first < 0)
+					bg.second->Render(_offset, renderer);
+		}
+
+		void Zone::RenderForeground(const Renderer* renderer) const
+		{
+			for(auto& bg : _layer_list)
+				if(bg.first >= 0)
+					bg.second->Render(_offset, renderer);
 		}
 
 		int Zone::Width() const { return _size.x; }
