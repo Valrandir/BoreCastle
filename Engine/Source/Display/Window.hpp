@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "Color.hpp"
 #include "Image.hpp"
+#include "ImageLoader.hpp"
 #include "Renderer.hpp"
 #include "../Input/Input.hpp"
 
@@ -11,7 +12,7 @@ namespace Engine
 	{
 		using namespace Input;
 
-		class Window : public Renderer
+		class Window : public Renderer, public ImageLoader
 		{
 			public:
 			static Window* Create(const char* title, int width, int height);
@@ -25,8 +26,6 @@ namespace Engine
 			virtual bool Update() = 0;
 			virtual void Close() = 0;
 
-			virtual Image* LoadImage(const char* file) const = 0;
-
 			using OnKeyProc = void(*)(KeyEvent ke, void* userdata);
 			OnKeyProc& OnKeyEvent(void* userdata = nullptr);
 
@@ -34,7 +33,7 @@ namespace Engine
 			void OnKey(KeyEvent ke);
 
 			private:
-			struct OnKeyCallback { OnKeyProc proc; void* user_data; } _on_key{};
+			struct OnKeyCallback { OnKeyProc proc; void* userdata; } _on_key{};
 		};
 	}
 }

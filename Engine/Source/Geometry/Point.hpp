@@ -4,6 +4,8 @@ namespace Engine
 {
 	namespace Geometry
 	{
+		struct Vector;
+
 		struct Point
 		{
 			int x, y;
@@ -41,6 +43,8 @@ namespace Engine
 			Point& operator--();
 			Point operator++(int);
 			Point operator--(int);
+
+			Vector ToVector() const;
 		};
 	}
 }

@@ -1,4 +1,5 @@
 #include "Point.hpp"
+#include "Vector.hpp"
 
 namespace Engine
 {
@@ -37,5 +38,10 @@ namespace Engine
 		Point& Point::operator--() { --x, --y; return *this; }
 		Point Point::operator++(int) { Point result(*this); ++x, ++y; return result; }
 		Point Point::operator--(int) { Point result(*this); --x, --y; return result; }
+
+		Vector Point::ToVector() const
+		{
+			return Vector(static_cast<double>(x), static_cast<double>(y));
+		}
 	}
 }

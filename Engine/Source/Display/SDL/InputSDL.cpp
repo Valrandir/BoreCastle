@@ -24,7 +24,7 @@ namespace Engine
 				case SDLK_UP: ke.key = Keys::KeyUp; break;
 				case SDLK_DOWN: ke.key = Keys::KeyDown; break;
 				case SDLK_ESCAPE: ke.key = Keys::KeyEscape; break;
-				case SDLK_RETURN: ke.key = Keys::KeyEnter; break;
+				case SDLK_RETURN: ke.key = Keys::KeyReturn; break;
 			}
 
 			if(sdl_keysym.mod | KMOD_LSHIFT || sdl_keysym.mod | KMOD_RSHIFT) ke.mod |= KeyMod_Shift;

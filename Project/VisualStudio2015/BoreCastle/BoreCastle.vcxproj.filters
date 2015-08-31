@@ -3,5 +3,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\BoreCastle\Win32Main.cpp" />
     <ClCompile Include="..\..\..\BoreCastle\BoreCastle.cpp" />
+    <ClCompile Include="..\..\..\BoreCastle\Shanoa.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\BoreCastle\Shanoa.hpp" />
   </ItemGroup>
 </Project>

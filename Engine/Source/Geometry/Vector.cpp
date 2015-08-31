@@ -1,5 +1,5 @@
 #include "Vector.hpp"
-
+#include "Point.hpp"
 #include <math.h>
 
 namespace Engine
@@ -27,15 +27,15 @@ namespace Engine
 		Vector Vector::operator*(double val) const { return Vector{x * val, y * val}; }
 		Vector Vector::operator/(double val) const { return Vector{x / val, y / val}; }
 
-		Vector& Vector::operator+=(const Vector& src) { x + src.x, y + src.y; return *this; }
-		Vector& Vector::operator-=(const Vector& src) { x - src.x, y - src.y; return *this; }
-		Vector& Vector::operator*=(const Vector& src) { x * src.x, y * src.y; return *this; }
-		Vector& Vector::operator/=(const Vector& src) { x / src.x, y / src.y; return *this; }
+		Vector& Vector::operator+=(const Vector& src) { x += src.x, y += src.y; return *this; }
+		Vector& Vector::operator-=(const Vector& src) { x -= src.x, y -= src.y; return *this; }
+		Vector& Vector::operator*=(const Vector& src) { x *= src.x, y *= src.y; return *this; }
+		Vector& Vector::operator/=(const Vector& src) { x /= src.x, y /= src.y; return *this; }
 
-		Vector& Vector::operator+=(double val) { x + val, y + val; return *this; }
-		Vector& Vector::operator-=(double val) { x - val, y - val; return *this; }
-		Vector& Vector::operator*=(double val) { x * val, y * val; return *this; }
-		Vector& Vector::operator/=(double val) { x / val, y / val; return *this; }
+		Vector& Vector::operator+=(double val) { x += val, y += val; return *this; }
+		Vector& Vector::operator-=(double val) { x -= val, y -= val; return *this; }
+		Vector& Vector::operator*=(double val) { x *= val, y *= val; return *this; }
+		Vector& Vector::operator/=(double val) { x /= val, y /= val; return *this; }
 
 		Vector& Vector::operator++() { ++x, ++y; return *this; }
 		Vector& Vector::operator--() { --x, --y; return *this; }
@@ -66,6 +66,11 @@ namespace Engine
 			double dx = vec.x - x;
 			double dy = vec.y - y;
 			return sqrt(dx * dx + dy * dy);
+		}
+
+		Point Vector::ToPoint() const
+		{
+			return Point(static_cast<int>(x), static_cast<int>(y));
 		}
 	}
 }

@@ -4,6 +4,8 @@ namespace Engine
 {
 	namespace Geometry
 	{
+		struct Point;
+
 		struct Vector
 		{
 			static const double EPSILON;
@@ -47,6 +49,8 @@ namespace Engine
 			Vector& EpsilonZero();
 			Vector& Normalize();
 			double Distance(const Vector& vec) const;
+
+			Point ToPoint() const;
 		};
 	}
 }

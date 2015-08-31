@@ -23,6 +23,7 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\Color.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Display.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Image.hpp" />
+    <ClInclude Include="..\..\..\Engine\Source\Display\ImageLoader.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\Renderer.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\ImageSDL.hpp" />
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\InputSDL.hpp" />
@@ -54,6 +55,7 @@
     <ClCompile Include="..\..\..\Engine\Source\Geometry\Motion.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Geometry\Point.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Geometry\Vector.cpp" />
+    <ClCompile Include="..\..\..\Engine\Source\Input\Keys.Win32.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Background.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Layout\Zone.cpp" />
     <ClCompile Include="..\..\..\Engine\Source\Timing\Clock.cpp" />

@@ -91,6 +91,9 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\SDL\InputSDL.hpp">
       <Filter>Display\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\ImageLoader.hpp">
+      <Filter>Display</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
@@ -132,6 +135,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Display\SDL\InputSDL.cpp">
       <Filter>Display\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Input\Keys.Win32.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
