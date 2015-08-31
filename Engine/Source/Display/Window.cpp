@@ -11,5 +11,16 @@ namespace Engine
 		}
 
 		Window::~Window(){}
+
+		Window::OnKeyProc& Window::OnKeyEvent(void* userdata)
+		{
+			return _on_key.proc;
+		}
+
+		void Window::OnKey(KeyEvent ke)
+		{
+			if(_on_key.proc)
+				_on_key.proc(ke, _on_key.user_data);
+		}
 	}
 }

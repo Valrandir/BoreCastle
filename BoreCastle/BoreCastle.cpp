@@ -7,12 +7,21 @@ using namespace Engine::Layout;
 
 Zone* CreateTestZone(int width, int height, const Window* window);
 
+void OnKey(KeyEvent ke, void* user_data)
+{
+	if(ke.up_or_down == KeyDirection::Down)
+		Engine::MessageBox(L"KeyDown", L"OnKeyDown");
+	else
+		Engine::MessageBox(L"KeyUp", L"OnKeyUp");
+}
+
 int BoreCastleMain()
 {
 	const int width = 1920 / 2;
 	const int height = 1080 / 2;
 
 	Window* window = Window::Create("Hello World!", width, height);
+	window->OnKeyEvent() = OnKey;
 
 	Zone* zone = CreateTestZone(width, height, window);
 	Sprite sprite_energy(24, window->LoadImage(DATA_PATH "Sprite.png"), 60);

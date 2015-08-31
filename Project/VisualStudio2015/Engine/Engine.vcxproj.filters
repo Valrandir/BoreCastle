@@ -19,6 +19,9 @@
     <Filter Include="Geometry">
       <UniqueIdentifier>{38a71617-dab7-4cc7-9ff2-69e716f4c3e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{2091daf2-13cd-4716-81ca-8acecb2997e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Engine\Source\Engine.hpp" />
@@ -79,6 +82,15 @@
     <ClInclude Include="..\..\..\Engine\Source\Geometry\Motion.hpp">
       <Filter>Geometry</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Input\Input.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Input\Keys.hpp">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Display\SDL\InputSDL.hpp">
+      <Filter>Display\SDL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
@@ -117,6 +129,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Geometry\Motion.cpp">
       <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\SDL\InputSDL.cpp">
+      <Filter>Display\SDL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

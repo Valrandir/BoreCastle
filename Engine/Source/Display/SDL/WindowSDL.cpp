@@ -1,5 +1,6 @@
 #include "WindowSDL.hpp"
 #include "ImageSDL.hpp"
+#include "InputSDL.hpp"
 
 namespace Engine
 {
@@ -82,6 +83,8 @@ namespace Engine
 			{
 				if(e.type == SDL_WINDOWEVENT && e.window.event == SDL_WINDOWEVENT_CLOSE)
 					_is_destroyed = true;
+				else if(e.type == SDL_KEYDOWN || e.type == SDL_KEYUP)
+					OnKey(ToKeyEvent(e.type, e.key.keysym));
 			}
 
 			return !_is_destroyed;
