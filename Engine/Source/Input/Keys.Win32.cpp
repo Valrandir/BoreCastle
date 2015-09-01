@@ -17,6 +17,7 @@ namespace Engine
 				case Keys::KeyDown: return VK_DOWN;
 				case Keys::KeyEscape: return VK_ESCAPE;
 				case Keys::KeyReturn: return VK_RETURN;
+				case Keys::KeySpace: return VK_SPACE;
 			}
 
 			return 0;

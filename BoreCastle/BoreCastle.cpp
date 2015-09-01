@@ -9,19 +9,10 @@ using namespace Engine::Layout;
 
 Zone* CreateTestZone(int width, int height, const Window* window);
 
-void OnKey(KeyEvent ke, void* user_data)
+void OnKey(KeyEvent ke, void* userdata)
 {
-	Shanoa* shanoa = reinterpret_cast<Shanoa*>(user_data);
-
-	if(ke.up_or_down == KeyDirection::Up)
-		shanoa->Stand();
-	else
-	{
-		if(ke.key == Keys::KeyLeft)
-			shanoa->MoveLeft();
-		else if(ke.key == Keys::KeyRight)
-			shanoa->MoveRight();
-	}
+	if(ke.key == Keys::KeyEscape)
+		reinterpret_cast<Window*>(userdata)->Close();
 }
 
 int BoreCastleMain()
@@ -30,14 +21,12 @@ int BoreCastleMain()
 	const int height = 1080 / 2;
 
 	Window* window = Window::Create("Hello World!", width, height);
-	Shanoa shanoa({130, height - 128 + 2 - 24}, window);
+	window->OnKeyEvent(window) = OnKey;
 
-	window->OnKeyEvent(&shanoa) = OnKey;
+	Shanoa shanoa({130, height - 128 + 2 - 24}, window);
 
 	Zone* zone = CreateTestZone(width, height, window);
 	Sprite sprite_energy(24, window->LoadImage(DATA_PATH "Sprite.png"), 60);
-	Sprite sprite_shanoa_stand(10, window->LoadImage(DATA_PATH "Shanoa\\shanoa_stand.png"), 10);
-	Sprite sprite_shanoa_run(6, window->LoadImage(DATA_PATH "Shanoa\\shanoa_run.png"), 10);
 
 	Point zone_offset;
 	Rate rate(60);
@@ -46,6 +35,13 @@ int BoreCastleMain()
 	{
 		for(int i = rate.Update(); i > 0; --i)
 		{
+			if(GetKeyState(Keys::KeyLeft))
+				shanoa.MoveLeft();
+			else if(GetKeyState(Keys::KeyRight))
+				shanoa.MoveRight();
+			else
+				shanoa.Stand();
+
 			shanoa.Update();
 		}
 
@@ -53,8 +49,6 @@ int BoreCastleMain()
 		window->Clear({0, 0, 0x20});
 			zone->RenderBackground(window);
 				sprite_energy.Draw({530, 55}, window);
-				sprite_shanoa_stand.Draw({530, height - 128 + 2 - 24}, window);
-				sprite_shanoa_run.Draw({650, height - 128 + 2 - 24}, window);
 
 				shanoa.Render(window);
 			zone->RenderForeground(window);

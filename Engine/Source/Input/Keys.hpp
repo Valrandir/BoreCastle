@@ -12,7 +12,8 @@ namespace Engine
 			KeyDown,
 
 			KeyEscape,
-			KeyReturn
+			KeyReturn,
+			KeySpace
 		};
 
 		const unsigned int KeyMod_Shift = 0x1;

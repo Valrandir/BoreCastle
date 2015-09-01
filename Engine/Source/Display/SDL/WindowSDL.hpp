@@ -24,8 +24,8 @@ namespace Engine
 
 			void Clear(Color color = Color()) const;
 			void DrawRect(const Rectangle& rectangle, Color color) const;
-			void DrawImage(const Point& position, const Image* image, Color color = {0xff, 0xff, 0xff}) const;
-			void DrawImage(const Point& position, Rectangle source, const Image* image, Color color = {0xff, 0xff, 0xff}) const;
+			void DrawImage(const Point& position, const Image* image, Color color = {0xff, 0xff, 0xff}, bool horizontal_flip = false, bool vertical_flip = false) const;
+			void DrawImage(const Point& position, Rectangle source, const Image* image, Color color = {0xff, 0xff, 0xff}, bool horizontal_flip = false, bool vertical_flip = false) const;
 
 			void EndDraw();
 			bool Update();

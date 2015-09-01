@@ -7,10 +7,11 @@ namespace Engine
 	{
 		class Motion
 		{
-			static const double FRICTION;
+			static const double FRICTION_DEFAULT;
 			Vector _position;
 			Vector _velocity;
 			double _mass;
+			double _friction;
 
 			public:
 			Motion();
@@ -25,10 +26,12 @@ namespace Engine
 			Vector Position() const;
 			Vector Velocity() const;
 			double Mass() const;
+			double Friction() const;
 
 			Motion& SetPosition(const Vector& position);
 			Motion& SetVelocity(const Vector& velocity);
 			Motion& SetMass(double mass);
+			Motion& SetFriction(double friction);
 		};
 	}
 }

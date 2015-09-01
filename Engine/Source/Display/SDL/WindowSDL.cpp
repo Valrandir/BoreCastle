@@ -49,23 +49,39 @@ namespace Engine
 			SDL_RenderFillRect(_renderer, &rect);
 		}
 
-		void WindowSDL::DrawImage(const Point& position, const Image* image, Color color) const
+		void WindowSDL::DrawImage(const Point& position, const Image* image, Color color, bool horizontal_flip, bool vertical_flip) const
 		{
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
 			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
 			SDL_Rect rect{position.x, position.y, image_sdl->Width(), image_sdl->Height()};
-			SDL_RenderCopy(_renderer, texture, nullptr, &rect);
+
+			SDL_RendererFlip flip = SDL_FLIP_NONE;
+			if(horizontal_flip) flip = SDL_RendererFlip(flip | SDL_FLIP_HORIZONTAL);
+			if(vertical_flip) flip = SDL_RendererFlip(flip | SDL_FLIP_VERTICAL);
+
+			if(flip)
+				SDL_RenderCopyEx(_renderer, texture, nullptr, &rect, 0.0, nullptr, flip);
+			else
+				SDL_RenderCopy(_renderer, texture, nullptr, &rect);
 		}
 
-		void WindowSDL::DrawImage(const Point& position, Rectangle source, const Image* image, Color color) const
+		void WindowSDL::DrawImage(const Point& position, Rectangle source, const Image* image, Color color, bool horizontal_flip, bool vertical_flip) const
 		{
 			const ImageSDL* image_sdl = dynamic_cast<const ImageSDL*>(image);
 			SDL_Texture* texture = image_sdl->Texture();
 			SDL_SetTextureColorMod(texture, color.red, color.green, color.blue);
 			SDL_Rect sdl_target{position.x, position.y, source.size.x, source.size.y};
 			SDL_Rect sdl_source{source.position.x, source.position.y, source.size.x, source.size.y};
-			SDL_RenderCopy(_renderer, texture, &sdl_source, &sdl_target);
+
+			SDL_RendererFlip flip = SDL_FLIP_NONE;
+			if(horizontal_flip) flip = SDL_RendererFlip(flip | SDL_FLIP_HORIZONTAL);
+			if(vertical_flip) flip = SDL_RendererFlip(flip | SDL_FLIP_VERTICAL);
+
+			if(flip)
+				SDL_RenderCopyEx(_renderer, texture, &sdl_source, &sdl_target, 0.0, nullptr, flip);
+			else
+				SDL_RenderCopy(_renderer, texture, &sdl_source, &sdl_target);
 		}
 
 		void WindowSDL::EndDraw()

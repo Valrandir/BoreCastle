@@ -21,9 +21,15 @@ namespace Engine
 			}
 		}
 
+		void Sprite::SetFlip(bool horizontal_flip, bool vertical_flip)
+		{
+			_horizontal_flip = horizontal_flip;
+			_vertical_flip = vertical_flip;
+		}
+
 		void Sprite::Draw(const Point& position, const Renderer* renderer)
 		{
-			renderer->DrawImage(position, {{_frame_index * _size.x, 0}, {_size.x, _size.y}}, _image);
+			renderer->DrawImage(position, {{_frame_index * _size.x, 0}, {_size.x, _size.y}}, _image, Color(255, 255, 255), _horizontal_flip, _vertical_flip);
 
 			_frame_index += _rate.Update();
 			if(_frame_index >= _frame_count)

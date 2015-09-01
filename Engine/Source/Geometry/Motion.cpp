@@ -4,9 +4,9 @@ namespace Engine
 {
 	namespace Geometry
 	{
-		const double Motion::FRICTION = 1. - 1. / 60.;
+		const double Motion::FRICTION_DEFAULT = 1. + 1. / 60.;
 
-		Motion::Motion() : _position{}, _velocity{}, _mass{1.0} {}
+		Motion::Motion() : _position{}, _velocity{}, _mass{1.0}, _friction{FRICTION_DEFAULT}{}
 		Motion::Motion(const Vector& position, const Vector& velocity, double mass) : _position{position}, _velocity{velocity}, _mass{mass < 1.0 ? 1.0 : mass} {}
 
 		Motion::Motion(const Motion& src)
@@ -32,7 +32,7 @@ namespace Engine
 
 		void Motion::Update()
 		{
-			_velocity *= FRICTION;
+			_velocity *= 1 / _friction;
 			_velocity.EpsilonZero();
 
 			_position += _velocity;
@@ -41,9 +41,11 @@ namespace Engine
 		Vector Motion::Position() const { return _position; }
 		Vector Motion::Velocity() const { return _velocity; }
 		double Motion::Mass() const { return _mass; }
+		double Motion::Friction() const { return _friction; }
 
 		Motion& Motion::SetPosition(const Vector& position) { _position = position; return *this; }
 		Motion& Motion::SetVelocity(const Vector& velocity) { _velocity = velocity; return *this; }
-		Motion& Motion::SetMass(double mass) { _mass = mass; return *this; }
+		Motion& Motion::SetMass(double mass) { _mass = mass < 1.0 ? 1.0 : mass; return *this; }
+		Motion& Motion::SetFriction(double friction) { _friction = friction < 1.0 ? 1.0 : friction; return *this; }
 	}
 }
