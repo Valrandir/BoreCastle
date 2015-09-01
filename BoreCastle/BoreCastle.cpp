@@ -36,9 +36,15 @@ int BoreCastleMain()
 		for(int i = rate.Update(); i > 0; --i)
 		{
 			if(GetKeyState(Keys::KeyLeft))
+			{
 				shanoa.MoveLeft();
+				--zone_offset;
+			}
 			else if(GetKeyState(Keys::KeyRight))
+			{
 				shanoa.MoveRight();
+				++zone_offset;
+			}
 			else
 				shanoa.Stand();
 
@@ -54,7 +60,6 @@ int BoreCastleMain()
 			zone->RenderForeground(window);
 		window->EndDraw();
 
-		++zone_offset;
 		zone->SetOffset(zone_offset);
 	}
 
