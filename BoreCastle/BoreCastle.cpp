@@ -35,6 +35,9 @@ int BoreCastleMain()
 	{
 		for(int i = rate.Update(); i > 0; --i)
 		{
+			if(GetKeyState(Keys::KeySpace))
+				shanoa.Jump();
+
 			if(GetKeyState(Keys::KeyLeft))
 			{
 				shanoa.MoveLeft();
