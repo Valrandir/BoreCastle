@@ -37,5 +37,7 @@ namespace Engine
 		}
 
 		Point Sprite::Size() const { return _size; }
+		int Sprite::FrameCount() const { return _frame_count; }
+		int Sprite::FrameIndex() const { return _frame_index; }
 	}
 }

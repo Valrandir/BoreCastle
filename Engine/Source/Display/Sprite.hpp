@@ -29,6 +29,8 @@ namespace Engine
 			void Draw(const Point& position, const Renderer* renderer);
 
 			Point Size() const;
+			int FrameCount() const;
+			int FrameIndex() const;
 		};
 	}
 }
