@@ -27,9 +27,30 @@ int BoreCastleMain()
 
 	Zone* zone = CreateTestZone(width, height, window);
 	Sprite sprite_energy(24, window->LoadImage(DATA_PATH "Sprite.png"), 60);
+	Sprite sprite_elskeletto(2, window->LoadImage(DATA_PATH "ElSkeletto/ElSkeletto.png"), 5);
+	Point elskeletto_position = {450, window->Height() - 128 - 32};
 
 	Point zone_offset;
 	Rate rate(60);
+
+	Shape s1(shanoa.Rect());
+	Shape s2({elskeletto_position, sprite_elskeletto.Size()});
+
+	//Obvious memory leak
+	auto quartz = [](Shape& shape)
+	{
+		auto& hs = shape.size / 2; //half size
+		shape.AddShape(new Shape({{shape.position}, hs}));
+		shape.AddShape(new Shape({{shape.position.x + hs.x, shape.position.y}, hs}));
+		shape.AddShape(new Shape({{shape.position.x, shape.position.y + hs.y}, hs}));
+		shape.AddShape(new Shape({{shape.position.x + hs.x, shape.position.y + hs.y}, hs}));
+	};
+
+	quartz(s1);
+	quartz(s2);
+
+	s1.MoveTo(shanoa.Position());
+	s2.MoveTo(elskeletto_position);
 
 	while(window->Update())
 	{
@@ -52,6 +73,9 @@ int BoreCastleMain()
 				shanoa.Stand();
 
 			shanoa.Update();
+
+			s1.MoveTo(shanoa.Position());
+			s1.Intersect(s2);
 		}
 
 		window->BeginDraw(false);
@@ -59,6 +83,10 @@ int BoreCastleMain()
 			zone->RenderBackground(window);
 				sprite_energy.Draw({530, 55}, window);
 
+				s1.Render(*window);
+				s2.Render(*window);
+
+				sprite_elskeletto.Draw(elskeletto_position, window);
 				shanoa.Render(window);
 			zone->RenderForeground(window);
 		window->EndDraw();

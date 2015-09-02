@@ -24,15 +24,15 @@ namespace Engine
 		Point Point::operator*(int val) const { return Point{x * val, y * val}; }
 		Point Point::operator/(int val) const { return Point{x / val, y / val}; }
 
-		Point& Point::operator+=(const Point& src) { x + src.x, y + src.y; return *this; }
-		Point& Point::operator-=(const Point& src) { x - src.x, y - src.y; return *this; }
-		Point& Point::operator*=(const Point& src) { x * src.x, y * src.y; return *this; }
-		Point& Point::operator/=(const Point& src) { x / src.x, y / src.y; return *this; }
+		Point& Point::operator+=(const Point& src) { x += src.x, y += src.y; return *this; }
+		Point& Point::operator-=(const Point& src) { x -= src.x, y -= src.y; return *this; }
+		Point& Point::operator*=(const Point& src) { x *= src.x, y *= src.y; return *this; }
+		Point& Point::operator/=(const Point& src) { x /= src.x, y /= src.y; return *this; }
 
-		Point& Point::operator+=(int val) { x + val, y + val; return *this; }
-		Point& Point::operator-=(int val) { x - val, y - val; return *this; }
-		Point& Point::operator*=(int val) { x * val, y * val; return *this; }
-		Point& Point::operator/=(int val) { x / val, y / val; return *this; }
+		Point& Point::operator+=(int val) { x += val, y += val; return *this; }
+		Point& Point::operator-=(int val) { x -= val, y -= val; return *this; }
+		Point& Point::operator*=(int val) { x *= val, y *= val; return *this; }
+		Point& Point::operator/=(int val) { x /= val, y /= val; return *this; }
 
 		Point& Point::operator++() { ++x, ++y; return *this; }
 		Point& Point::operator--() { --x, --y; return *this; }

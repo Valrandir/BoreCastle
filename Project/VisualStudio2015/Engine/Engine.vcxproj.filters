@@ -94,6 +94,9 @@
     <ClInclude Include="..\..\..\Engine\Source\Display\ImageLoader.hpp">
       <Filter>Display</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Engine\Source\Geometry\Shape.hpp">
+      <Filter>Geometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Engine\Source\Engine.Win32.cpp" />
@@ -138,6 +141,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Engine\Source\Input\Keys.Win32.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Display\Color.cpp">
+      <Filter>Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Engine\Source\Geometry\Shape.cpp">
+      <Filter>Geometry</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

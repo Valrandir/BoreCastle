@@ -107,3 +107,8 @@ Point Shanoa::Position() const
 {
 	return _motion.Position().ToPoint();
 }
+
+Rectangle Shanoa::Rect() const
+{
+	return {Position(), {64, 128}};
+}

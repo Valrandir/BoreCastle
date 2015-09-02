@@ -13,22 +13,31 @@ namespace Engine
 			Rectangle() {}
 			Rectangle(const Point& position, const Point& size) : position{position}, size{size} {}
 
-			Rectangle(const Rectangle& source)
+			Rectangle(const Rectangle& src)
 			{
-				position = source.position;
-				size = source.size;
+				position = src.position;
+				size = src.size;
 			}
 
-			Rectangle& operator=(const Rectangle& source)
+			Rectangle& operator=(const Rectangle& src)
 			{
-				position = source.position;
-				size = source.size;
+				position = src.position;
+				size = src.size;
 				return *this;
 			}
 
-			bool operator==(const Rectangle& source) const
+			bool operator==(const Rectangle& src) const
 			{
-				return position == source.position && size == source.size;
+				return position == src.position && size == src.size;
+			}
+
+			bool Intersect(const Rectangle& src) const
+			{
+				return
+					src.position.x + src.size.x >= position.x &&
+					src.position.x <= position.x + size.x &&
+					src.position.y + src.size.y >= position.y &&
+					src.position.y <= position.y + size.y;
 			}
 		};
 	}

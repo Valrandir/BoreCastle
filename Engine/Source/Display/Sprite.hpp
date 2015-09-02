@@ -26,8 +26,9 @@ namespace Engine
 			~Sprite();
 
 			void SetFlip(bool horizontal_flip, bool vertical_flip);
-
 			void Draw(const Point& position, const Renderer* renderer);
+
+			Point Size() const;
 		};
 	}
 }

@@ -45,6 +45,7 @@ namespace Engine
 		void WindowSDL::DrawRect(const Rectangle& rectangle, Color color) const
 		{
 			SDL_SetRenderDrawColor(_renderer, color.red, color.green, color.blue, color.alpha);
+			SDL_SetRenderDrawBlendMode(_renderer, color.alpha == 0xff ? SDL_BLENDMODE_NONE : SDL_BLENDMODE_BLEND);
 			SDL_Rect rect{rectangle.position.x, rectangle.position.y, rectangle.size.x, rectangle.size.y};
 			SDL_RenderFillRect(_renderer, &rect);
 		}

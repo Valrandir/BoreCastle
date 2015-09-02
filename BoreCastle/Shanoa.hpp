@@ -31,4 +31,5 @@ class Shanoa
 	void Render(const Renderer* renderer) const;
 
 	Point Position() const;
+	Rectangle Rect() const;
 };
